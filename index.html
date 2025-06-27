@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KPOP Playlist Snake Game</title>
+  <!-- Google 字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech&display=swap" rel="stylesheet"> 
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="default-theme">
+
+  <h1>KPOP Playlist Snake Game</h1>
+
+  <!-- 初始選擇畫面 -->
+  <div id="playlistSelect">
+    <h2>Choose a Playlist</h2>
+
+    <!-- 選擇要玩的歌手音樂 -->
+    <div class="carousel-container">
+      <div class="carousel-track">
+
+        <!-- SEVENTEEN -->
+        <div class="artist-card active">
+          <img src="images/seventeen.jpg" alt="SEVENTEEN" class="artist-image">
+          <div class="card-buttons">
+            <button id="selectSeventeen">Choose<br>SEVENTEEN</button>
+            <button class="nextBtn">Next Artist</button>
+          </div>
+        </div>
+
+        <!-- TXT -->
+        <div class="artist-card">
+          <img src="images/txt.JPEG" alt="TXT" class="artist-image">
+          <div class="card-buttons">
+            <button id="selectTXT">Choose<br>TOMORROW X TOGETHER</button>
+            <button class="nextBtn">Next Artist</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 遊戲 -->
+  <div id="gameUI" style="display: none;">
+    
+    <!-- 即時分數 -->
+    <div id="scoreBoard">Score: 0</div>
+
+    <!-- 最高分紀錄 -->
+    <div id="highScore">Highest Score: 0</div>
+
+    <!-- 播放歌曲時顯示該首歌的歌名（預設隱藏） -->
+    <p id="songName" style="display: none;"></p>
+
+    <!-- 遊戲區塊 -->
+    <div id="gameAreaWrapper">
+
+      <!-- 貪食蛇的畫布空間 -->
+      <canvas id="gameCanvas" width="400" height="400"></canvas>
+
+      <!-- 遊戲過程播到的歌的清單 -->
+      <div id="playedSongsList">
+        <h3 id="playedSongsTitle">Songs in This Round<br>( Click on song titles to listen )</h3>
+        <ul id="songList"></ul>
+      </div>
+    </div>
+
+    <!-- 歌取播放器：點歌名時會播放該首歌30秒 -->
+    <audio id="audioPlayer" controls hidden></audio>
+
+    <!-- 遊戲開始鍵，點了貪食蛇才會開始動 -->
+    <button id="startBtn" style="display: none;">Start</button>
+
+    <!-- 遊戲結束後選擇再玩一次or換歌手玩 -->
+    <div id="buttonContainer" class="button-row" style="display: none;">
+      <button id="restartBtn">Play Again</button>
+      <button id="reselectBtn">Re-select Artist</button>
+    </div>
+  </div>
+
+  <!-- 背景動畫：星點&漂浮光點 -->
+  <div class="floating-glows">
+    <div class="glow"></div>
+    <div class="glow delay1"></div>
+    <div class="glow delay2"></div>
+  </div>  
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>

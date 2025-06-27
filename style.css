@@ -1,0 +1,396 @@
+body {
+    margin: 0;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    color: black;
+    font-family: "Share Tech", sans-serif;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* 預設黑色背景 */
+body.default-theme {
+    background-image: radial-gradient(circle, #3d3d3d, #5c5c5c, #7d7d7d, #9f9f9f, #c3c3c3, #cbcbcb, #d3d3d3, #dbdbdb, #c8c8c8, #b5b5b5, #a3a3a3, #919191);
+    animation: gradientShift 50s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* BTS 漸層背景 */
+/* body.bts-theme {
+  background-image: radial-gradient(circle, #5f2568, #744b83, #8a6f9d, #a293b5, #beb7cc, #c5bfd1, #cbc6d6, #d2cedb, #c4bad1, #b7a6c6, #ac92b9, #a27eac);
+  animation: gradientShift 50s ease infinite;
+  background-size: 400% 400%;
+} */
+
+/* Seventeen 漸層背景 */
+body.seventeen-theme {
+    background-image: radial-gradient(circle, #f7cac9, #f7ccd3, #f5cedd, #f1d1e6, #ecd5ee, #e7d4f1, #e0d3f5, #d8d3f8, #cdcdfa, #bfc8fc, #afc3fd, #9cbfff);
+    animation: gradientShift 50s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* TXT 漸層背景 */
+body.txt-theme {
+    background-image: radial-gradient(circle, #5e7f7a, #718d90, #889ba2, #a0aab1, #b6b9be, #bdc2c9, #c4cad4, #cbd3df, #bfd8e9, #aedfee, #9ee5eb, #97ebdf);
+    animation: gradientShift 50s ease infinite;
+    background-size: 400% 400%;
+}
+
+/* ENHYPEN 漸層背景 */
+/* body.enhypen-theme {
+    background-image: radial-gradient(circle, #d9a049, #e9a66a, #f2af89, #f5baa6, #f3c8c0, #f0ccc7, #edd1cd, #ead5d3, #ead0cb, #eacac3, #eac6ba, #e8c1b0);
+    animation: gradientShift 50s ease infinite;
+    background-size: 400% 400%;
+} */
+
+/* 背景隨機移動動畫 */
+@keyframes gradientShift {
+    0% {
+        background-position: 40% 90%;
+    }
+    10% {
+        background-position: 80% 10%;
+    }
+    20% {
+        background-position: 50% 60%;
+    }
+    30% {
+        background-position: 90% 30%;
+    }
+    40% {
+        background-position: 20% 50%;
+    }
+    50% {
+        background-position: 10% 90%;
+    }
+    60% {
+        background-position: 60% 90%;
+    }
+    70% {
+        background-position: 80% 10%;
+    }
+    80% {
+        background-position: 100% 60%;
+    }
+    690% {
+        background-position: 70% 30%;
+    }
+    100% {
+        background-position: 30% 90%;
+    }
+}
+
+
+h1 {
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+#playlistSelect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+#playlistSelect button {
+    padding: 5px 15px;
+    margin-top: 5px;
+    font-size: 16px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#playlistSelect button:hover {
+    background-color: black;
+    color: white;
+}
+
+.carousel-container {
+    position: relative;
+    width: 300px;
+    overflow: hidden;
+    margin-top: 0px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.artist-card {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.4;
+    transform: scale(0.85);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.artist-card.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.artist-image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.card-buttons button {
+    font-family: "Share Tech", sans-serif;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.card-buttons button:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#nextBtn {
+    margin-top: 15px;
+    font-family: "Share Tech", sans-serif;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#scoreBoard, #highScore, #songName {
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+#songName {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-weight: 600;
+    color: black;
+    text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.3);
+}
+
+#scoreBoard {
+    font-size: 20px;
+}
+
+#highScore {
+    font-size: 16px;
+}
+
+canvas {
+    background-color: #111111;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+}
+
+#startBtn {
+    display: block;
+    margin: 10px auto 0;
+}
+
+#startBtn, #restartBtn, #reselectBtn {
+    font-family: "Share Tech", sans-serif;
+    padding: 8px 16px;
+    font-size: 16px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    color: black;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#startBtn:hover, #restartBtn:hover, #reselectBtn:hover {
+    background-color: black;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.button-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#gameAreaWrapper {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 5px;
+    transition: transform 1s ease;
+}
+
+body.game-active #gameAreaWrapper {
+    justify-content: center;
+}
+
+#gameCanvas.slide-out {
+    transform: translateX(-50px);
+    transition: transform 1.5s ease;
+}
+
+#playedSongsList {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 10px;
+    width: 200px;
+    display: none;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 1s ease, transform 1.5s ease;
+    z-index: 2;
+    color: white;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+#playedSongsList.fade-in {
+    display: block;
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+#playedSongsTitle {
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.3);
+    margin-bottom: 6px;
+    margin-top: 0px;
+}
+
+#songList {
+    font-size: 14px;
+    font-weight: 500;
+    text-shadow: 1.5px 1.5px 2px rgba(0, 0, 0, 0.3);
+    list-style-type: none;
+    padding: 0 10px;
+    margin-top: 5px;
+    max-width: 250px;
+    max-height: 340px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: block;
+}
+
+#songList li {
+    break-inside: avoid;
+    padding: 5px 0;
+    transition: all 0.3s ease;
+}
+
+#songList li:hover {
+    color: black;
+    font-size: 14.5px;
+}
+
+#songList::-webkit-scrollbar {
+    width: 8px; /* 捲軸寬度 */
+}
+
+#songList::-webkit-scrollbar-thumb {
+    background-color: rgb(241, 241, 241);
+    border-radius: 4px;
+}
+
+#songList::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+body {
+    justify-content: center;
+}
+
+/* 漂浮光點動畫 */
+.floating-glows {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.glow {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%);
+    border-radius: 50%;
+    filter: blur(10px);
+    top: 100%;
+    left: 20%;
+    animation: floatUp 20s linear infinite;
+}
+
+.glow.delay1 {
+    left: 50%;
+    animation-delay: 5s;
+}
+
+.glow.delay2 {
+    left: 75%;
+    animation-delay: 10s;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
